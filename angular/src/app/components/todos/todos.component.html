@@ -1,0 +1,11 @@
+<app-add-todo-item
+    (createItem)="createItem($event)"
+    >
+</app-add-todo-item>
+<app-todo-item 
+    *ngFor="let item of data" 
+    [item]="item"
+    (deleteItem)="deleteItem($event)"
+    >
+</app-todo-item>
+<!-- <pre>{{ data | json }}</pre> -->

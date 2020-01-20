@@ -1,0 +1,5 @@
+<p>
+    {{ item.name }}
+    <input type="checkbox" [checked]="item.isComplete" (change)="onComplete(item)">
+    <button (click)="onDelete(item)">Delete</button>
+</p>
