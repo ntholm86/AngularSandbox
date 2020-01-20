@@ -11,6 +11,7 @@ export class TodosComponent implements OnInit {
 	data: Todo[];
 
   	constructor(private service:TodosService) {
+		
 	}
 
 	ngOnInit() {
@@ -24,10 +25,11 @@ export class TodosComponent implements OnInit {
 		this.service.delete(item).subscribe();
 	}
 
-	createItem(item: Todo) {
-		this.service.post(item).subscribe(r => {
-			this.data.push(r);
-		});
-		console.log(item);
+	createItem(name: string) {
+		this.service.add(name);
+	}
+
+	completeItem(item: Todo) {
+		this.service.complete(item);
 	}
 }

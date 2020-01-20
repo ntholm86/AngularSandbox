@@ -9,6 +9,7 @@ import { TodosService } from 'src/app/services/todos.service';
 })
 export class TodoItemComponent implements OnInit {
 	@Output() deleteItem: EventEmitter<Todo> = new EventEmitter();
+	@Output() completeItem: EventEmitter<Todo> = new EventEmitter();
 	@Input() item: Todo;
 
 	constructor(private service:TodosService) {}
@@ -17,10 +18,7 @@ export class TodoItemComponent implements OnInit {
 	}
 
 	onComplete(item: Todo) {
-		this.item.isComplete = !item.isComplete;
-		this.service.put(item).subscribe(item => {
-			console.log(item);
-		});
+		this.completeItem.emit(item);
 	}
 
 	onDelete(item: Todo) {

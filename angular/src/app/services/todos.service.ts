@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Todo } from '../models/Todo';
+import { Todo, createTodo } from '../models/Todo';
+import { TodosStore } from '../stores/todos.store';
 
 const httpOptions = {
 	headers: new HttpHeaders({
@@ -16,7 +17,21 @@ export class TodosService {
 
 	url: string = 'http://localhost:59508/api/todoitems';
 
-  	constructor(private http:HttpClient) { }
+	constructor(
+		private http: HttpClient, 
+		private todosStore: TodosStore
+	) { }
+
+	add(name: string) {
+		const todo = createTodo({ id: Math.random(), name });
+		this.todosStore.add(todo);
+	}
+
+	complete({ id, isComplete }: Todo) {
+		this.todosStore.update(id, {
+		  	isComplete
+		});
+	}
 
 	get():Observable<Todo[]> {
 		return this.http.get<Todo[]>(this.url);

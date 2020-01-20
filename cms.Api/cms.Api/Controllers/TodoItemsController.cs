@@ -29,7 +29,7 @@ namespace cms.Api.Controllers
 
         // GET: api/TodoItems/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<TodoItem>> GetTodoItem(long id)
+        public async Task<ActionResult<TodoItem>> GetTodoItem(Guid id)
         {
             var todoItem = await _context.TodoItems.FindAsync(id);
 
@@ -45,7 +45,7 @@ namespace cms.Api.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTodoItem(long id, TodoItem todoItem)
+        public async Task<IActionResult> PutTodoItem(Guid id, TodoItem todoItem)
         {
             if (id != todoItem.Id)
             {
@@ -86,7 +86,7 @@ namespace cms.Api.Controllers
 
         // DELETE: api/TodoItems/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<TodoItem>> DeleteTodoItem(long id)
+        public async Task<ActionResult<TodoItem>> DeleteTodoItem(Guid id)
         {
             var todoItem = await _context.TodoItems.FindAsync(id);
             if (todoItem == null)
@@ -100,7 +100,7 @@ namespace cms.Api.Controllers
             return todoItem;
         }
 
-        private bool TodoItemExists(long id)
+        private bool TodoItemExists(Guid id)
         {
             return _context.TodoItems.Any(e => e.Id == id);
         }

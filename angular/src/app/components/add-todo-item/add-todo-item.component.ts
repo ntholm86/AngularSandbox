@@ -16,11 +16,8 @@ export class AddTodoItemComponent implements OnInit {
   }
 
   onSubmit() {
-    const todo = {
-      name: this.title,
-      isCompleted: false
-    };
-    this.createItem.emit(todo);
+    this.createItem.emit(this.title);
+    this.title = '';
   }
 
 }
