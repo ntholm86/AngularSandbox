@@ -9,26 +9,26 @@ import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
 import { TodosComponent } from './Todo/todos/todos.component';
 import { TodoItemComponent } from './Todo/todo-item/todo-item.component';
 import { AddTodoItemComponent } from './Todo/add-todo-item/add-todo-item.component';
-import { ProductsModule } from './products/products.module';
+import { ProductsModule } from './modules/products/products.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    TodosComponent,
-    TodoItemComponent,
-    AddTodoItemComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule, 
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    AkitaNgRouterStoreModule,
-    ProductsModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+		AppComponent,
+		TodosComponent,
+		TodoItemComponent,
+		AddTodoItemComponent,
+    ],
+    imports: [
+		BrowserModule,
+		AppRoutingModule, 
+		HttpClientModule,
+		FormsModule,
+		ReactiveFormsModule,
+		BrowserAnimationsModule,
+		AkitaNgRouterStoreModule,
+		ProductsModule,
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

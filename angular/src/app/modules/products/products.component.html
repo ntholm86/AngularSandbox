@@ -1,6 +1,6 @@
 <section>
     <h1>Products</h1>
-    <ng-container *ngIf="!(loading$ | async); else loadingTpl">
+    <ng-container *ngIf="!(loading$ | async);">
         
         <label>Sort by:&nbsp;</label>
         <select [formControl]="sortControl">
@@ -21,12 +21,5 @@
         </app-product>
 
     </ng-container>
-
-    <!--Spinner-->
-    <ng-template #loadingTpl>
-        <div class="progress">
-            <div class="indeterminate"></div>
-        </div>
-    </ng-template>
 
 </section>

@@ -8,6 +8,7 @@ import { Product } from '../state/products.model';
 })
 export class ProductComponent {
 	@Input() product: Product;
-	@Output() add = new EventEmitter<Product>();
 	@Output() subtract = new EventEmitter<Product>();
+
+	
 }

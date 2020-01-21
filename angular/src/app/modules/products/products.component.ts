@@ -12,24 +12,25 @@ import { ProductsQuery } from './state/products.query';
 })
 export class ProductsComponent implements OnInit {
 	products$: Observable<Product[]>;
-	loading$: Observable<boolean>;
 	search = new FormControl();
 	sortControl = new FormControl('title');
 
-	constructor(private productsService: ProductsService, private productsQuery: ProductsQuery) {}
+	constructor(
+		private productsService: ProductsService, 
+		private productsQuery: ProductsQuery
+		) {}
 
 	ngOnInit() {
 		this.productsService.get().subscribe();
-		this.loading$ = this.productsQuery.selectLoading();
-
-		this.products$ = combineLatest(this.search.valueChanges.pipe(startWith('')), this.sortControl.valueChanges.pipe(startWith('title'))).pipe(
-		switchMap(([term, sortBy]) => this.productsQuery.getProducts(term, sortBy as keyof Product))
+		this.products$ = this.productsQuery.selectAll();
+		/*
+		combineLatest(
+			this.search.valueChanges.pipe(startWith('')), 
+			this.sortControl.valueChanges.pipe(startWith('title'))
+		).pipe(
+			switchMap(([term, sortBy]) => this.productsQuery.getProducts(term, sortBy as keyof Product))
 		);
-	}
-	
-	addProductToCart({ id }: Product) {
-		console.log('Add: ' + id);
-		//this.cartService.addProductToCart(id);
+		*/
 	}
 
 	subtract({ id }: Product) {

@@ -7,7 +7,9 @@ export interface ProductsState extends EntityState<Product>, MultiActiveState {}
 @Injectable({ providedIn: 'root' })
 @StoreConfig({ name: 'products' })
 export class ProductsStore extends EntityStore<ProductsState> {
+
     constructor() {
         super({ active: [] });
     }
+    
 }
