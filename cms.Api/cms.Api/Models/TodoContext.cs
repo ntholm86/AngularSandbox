@@ -23,6 +23,8 @@ namespace cms.Api.Models
 
         public DbSet<Game> Games { get; set; }
 
+        public DbSet<Product> Products { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
