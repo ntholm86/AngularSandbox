@@ -9,8 +9,7 @@ import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
 import { TodosComponent } from './Todo/todos/todos.component';
 import { TodoItemComponent } from './Todo/todo-item/todo-item.component';
 import { AddTodoItemComponent } from './Todo/add-todo-item/add-todo-item.component';
-import { ProductsComponent } from './products/products.component';
-import { ProductComponent } from './products/product/product.component';
+import { ProductsModule } from './products/products.module';
 
 @NgModule({
   declarations: [
@@ -18,8 +17,6 @@ import { ProductComponent } from './products/product/product.component';
     TodosComponent,
     TodoItemComponent,
     AddTodoItemComponent,
-    ProductsComponent,
-    ProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +26,7 @@ import { ProductComponent } from './products/product/product.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     AkitaNgRouterStoreModule,
+    ProductsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
