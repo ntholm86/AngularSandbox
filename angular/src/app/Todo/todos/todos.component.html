@@ -4,9 +4,8 @@
     >
 </app-add-todo-item>
 <app-todo-item 
-    *ngFor="let item of data" 
+    *ngFor="let item of todos$" 
     [item]="item"
     (deleteItem)="deleteItem($event)"
     >
 </app-todo-item>
-<!-- <pre>{{ data | json }}</pre> -->

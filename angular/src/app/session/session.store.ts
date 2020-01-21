@@ -1,24 +1,23 @@
 import { EntityState, EntityStore } from '@datorama/akita';
 import { Store, StoreConfig } from '@datorama/akita';
-import { Todo } from '../models/Todo';
-
-export interface State extends EntityState<Todo> {}
+import { Injectable } from '@angular/core';
 
 export interface SessionState {
-   token: string;
-   name: string;
+	token: string;
+	name: string;
 }
 
 export function createInitialState(): SessionState {
-  return {
-    token: '',
-    name: ''
-  };
+	return {
+		token: '',
+		name: ''
+	};
 }
 
+@Injectable({ providedIn: 'root' })
 @StoreConfig({ name: 'session' })
 export class SessionStore extends Store<SessionState> {
-  constructor() {
-    super(createInitialState());
-  }
+	constructor() {
+		super(createInitialState());
+	}
 }

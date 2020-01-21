@@ -1,9 +1,9 @@
-import { SessionStore } from '../stores/session.store';
+import { SessionStore } from './session.store';
 
 export class SessionService {
   constructor(private sessionStore: SessionStore) {}
 
-  updateUserName(newName: string) {
+  updateName(newName: string) {
     this.sessionStore.update({ name: newName });
   }  
 }
